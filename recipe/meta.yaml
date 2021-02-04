@@ -1,4 +1,4 @@
-{% set version = '0.6.1' %}
+{% set version = "0.6.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/see_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/see/see_{{ version }}.tar.gz
-  sha256: 80e8a4fb61d02e978ce60362413d78da87738987f5c53d54327674b58df9ed2a
+  sha256: 6f80ebd08b3fc6a270450fd3e8f772760e970011a84d903ae62bf75485eb4c54
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
 
@@ -59,13 +59,11 @@ about:
   home: https://easystats.github.io/see/
 
   license: GPL-3.0-only
-  summary: Provides plotting utilities supporting easystats-packages (<https://github.com/easystats/easystats>)
-    and some extra themes, geoms, and scales for 'ggplot2'. Color scales are based on
-    <https://www.materialui.co/colors>.
+  summary: Provides plotting utilities supporting easystats-packages (<https://github.com/easystats/easystats>) and some extra themes, geoms, and scales for 'ggplot2'. Color scales are based on <https://www.materialui.co/colors>.
 
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
