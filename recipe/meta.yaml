@@ -1,4 +1,4 @@
-{% set version = "0.7.3" %}
+{% set version = "0.7.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,13 +10,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/see_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/see/see_{{ version }}.tar.gz
-  sha256: 5f3817ea30d25a36dd2e28c80e1d9ccfa7468f8899c1e2131a7b3d5bf145f94c
+  sha256: 82784499a088f29cd1d1ec99481d121ddea1c0cbf334ce51e7f9ff103054e21c
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   noarch: generic
-
   rpaths:
     - lib/R/lib/
     - lib/
@@ -25,30 +24,28 @@ requirements:
   build:
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
-
   host:
     - r-base
-    - r-bayestestr
-    - r-dplyr
-    - r-effectsize
-    - r-ggplot2
-    - r-ggridges
-    - r-insight
-    - r-magrittr
-    - r-parameters
-    - r-rlang
-
+    - r-bayestestr >=0.13.0
+    - r-correlation >=0.8.3
+    - r-datawizard >=0.6.4
+    - r-effectsize >=0.8.2
+    - r-ggplot2 >=3.4.0
+    - r-insight >=0.18.8
+    - r-modelbased >=0.8.5
+    - r-parameters >=0.20.0
+    - r-performance >=0.10.1
   run:
     - r-base
-    - r-bayestestr
-    - r-dplyr
-    - r-effectsize
-    - r-ggplot2
-    - r-ggridges
-    - r-insight
-    - r-magrittr
-    - r-parameters
-    - r-rlang
+    - r-bayestestr >=0.13.0
+    - r-correlation >=0.8.3
+    - r-datawizard >=0.6.4
+    - r-effectsize >=0.8.2
+    - r-ggplot2 >=3.4.0
+    - r-insight >=0.18.8
+    - r-modelbased >=0.8.5
+    - r-parameters >=0.20.0
+    - r-performance >=0.10.1
 
 test:
   commands:
@@ -57,10 +54,8 @@ test:
 
 about:
   home: https://easystats.github.io/see/
-
   license: GPL-3.0-only
   summary: Provides plotting utilities supporting easystats-packages (<https://github.com/easystats/easystats>) and some extra themes, geoms, and scales for 'ggplot2'. Color scales are based on <https://www.materialui.co/colors>.
-
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
