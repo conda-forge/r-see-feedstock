@@ -1,4 +1,4 @@
-{% set version = "0.8.5" %}
+{% set version = "0.9.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/see_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/see/see_{{ version }}.tar.gz
-  sha256: c81df59a78f9508c25343e330c83faf38577392ac169f2196f5f5430137d17b0
+  sha256: 91a34caf7bdb55b7db8238ac89b3c17ce96ddceaee42bc78df8f4fafffd74c00
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
